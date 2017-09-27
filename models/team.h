@@ -2,6 +2,7 @@
 #define TEAM_H
 
 #include <string>
+#include <iostream>
 #include "player.h"
 
 namespace rocker {
@@ -13,15 +14,16 @@ public:
 
     static const unsigned short PLAYERS_LIMIT = 23;
 
-    inline std::vector<Player> getPlayers(){ return players; }
+    inline std::vector<Player*> getPlayers(){ return players; }
     inline std::string getName(){ return name; }
     inline unsigned short getYearOfFundation(){ return yearOfFoundation; }
 
+    void addPlayer(Player* p);
     bool teamIsComplete();
 private:
     std::string name;
     unsigned short yearOfFoundation;
-    std::vector<Player> players;
+    std::vector<Player*> players;
 };
 
 }
